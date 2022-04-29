@@ -37,10 +37,10 @@ export default {
 		}
 	},
 	watch:{
-		rec:function(newVal,oldVal){
+		rec:function(newVal){
 			this.bookList = newVal
 		},
-		search:function(newVal,oldVal){
+		search:function(newVal){
 			this.bookList = newVal
 		}
 	},

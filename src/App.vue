@@ -9,14 +9,14 @@
 <script>
 import { headerDisplay } from "./components/header.vue";
 import { search } from "./components/search.vue";
-import { book } from "./components/book.vue";
+import { books } from "./components/book.vue";
 
 export default {
   name: 'App',
   components: {
     headerDisplay,
     search,
-    book
+    books
   },
 	data(){
 		return {
