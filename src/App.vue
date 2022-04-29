@@ -1,20 +1,20 @@
 <template>
   <div>
-      <header_display @rec_to_app="rec_to_books"></header_display>
+      <headerDisplay @rec_to_app="rec_to_books"></headerDisplay>
       <search @search_list = "showSearch"></search>
       <books :rec="rec_json" :search = "search_list"></books>
   </div>
 </template>
 
 <script>
-import { header_display } from "./components/header.vue";
+import { headerDisplay } from "./components/header.vue";
 import { search } from "./components/search.vue";
 import { book } from "./components/book.vue";
 
 export default {
   name: 'App',
   components: {
-    header_display,
+    headerDisplay,
     search,
     book
   },
