@@ -1,11 +1,11 @@
 <template>
-		<nav>
-			<ul>
-				<li><a href="#" @click.prevent = recommend>推荐阅读</a></li>
-				<li v-if = "this.isLogin"><p>你好	{{userJson.UserID}},  欢迎访问 !</p></li>
-				<li v-else><a href = '/html/login.html'>登录</a></li>
-			</ul>
-		</nav>
+	<nav>
+		<ul>
+			<li><a href="#" @click.prevent = recommend>推荐阅读</a></li>
+			<li v-if = "this.isLogin"><p>你好	{{userJson.UserID}},  欢迎访问 !</p></li>
+			<li v-else><a href = '/html/login.html'>登录</a></li>
+		</ul>
+	</nav>
 </template>
 
 <script>

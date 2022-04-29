@@ -1,40 +1,22 @@
 <template>
-  <div>
-      <headerDisplay @rec_to_app="rec_to_books"></headerDisplay>
+      <header_display @rec_to_app="rec_to_books"></header_display>
       <search @search_list = "showSearch"></search>
       <books :rec="rec_json" :search = "search_list"></books>
-  </div>
 </template>
 
 <script>
-import { headerDisplay } from "./components/header.vue";
-import { search } from "./components/search.vue";
-import { books } from "./components/book.vue";
+import header_display from './components/header.vue'
+import search from './components/search.vue'
+import books from './components/book.vue'
 
 export default {
   name: 'App',
   components: {
-    headerDisplay,
+    header_display,
     search,
     books
   },
-	data(){
-		return {
-			rec_json:{},
-			search_list:{}
-		}
-	},
-	methods:{
-		rec_to_books(rec_json){
-			// console.log(rec_json);
-			console.log("rec_to_books");
-			this.rec_json = rec_json
-		},
-		showSearch(search_list){
-			console.log("search_list");
-			this.search_list = search_list
-		}
-	}
+  
 }
 </script>
 
