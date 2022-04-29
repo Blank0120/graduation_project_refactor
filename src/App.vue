@@ -1,22 +1,21 @@
 <template>
-      <header_display @rec_to_app="rec_to_books"></header_display>
-      <search @search_list = "showSearch"></search>
-      <books :rec="rec_json" :search = "search_list"></books>
+      <header-display @rec_to_app="rec_to_books"></header-display>
+      <search-display @search_list = "showSearch"></search-display>
+      <books-display :rec="rec_json" :search = "search_list"></books-display>
 </template>
 
 <script>
-import header_display from './components/header.vue'
-import search from './components/search.vue'
-import books from './components/book.vue'
+import headerDisplay from './components/header-display.vue'
+import searchDisplay from './components/search-display.vue'
+import booksDisplay from './components/books-display.vue'
 
 export default {
   name: 'App',
   components: {
-    header_display,
-    search,
-    books
+    headerDisplay,
+    searchDisplay,
+    booksDisplay
   },
-  
 }
 </script>
 

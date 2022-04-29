@@ -9,8 +9,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-	name: 'header',
 	data() {
 		return {
 			userJson: {},
