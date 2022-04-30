@@ -1,49 +1,49 @@
 <template>
-		`<form class="login-box">
-		<h1>Login</h1>
-		<div class="textbox">
-		  <i class="fa fa-user" aria-hidden="true"></i>
-		  <input type="text" placeholder="UserID" v-model = "userID" required="required">
-		</div>
-		<div class="textbox">
-		   <i class="fa fa-lock" aria-hidden="true"></i>
-		   <input type="password" placeholder="Password" v-model = "password" required="required">
-		</div>
-		<input type="submit" class="btn" value="Sign in" @click.prevent = "login">
-	</form>
+    `<form class="login-box">
+    <h1>Login</h1>
+    <div class="textbox">
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text" placeholder="UserID" v-model = "userID" required="required">
+    </div>
+    <div class="textbox">
+       <i class="fa fa-lock" aria-hidden="true"></i>
+       <input type="password" placeholder="Password" v-model = "password" required="required">
+    </div>
+    <input type="submit" class="btn" value="Sign in" @click.prevent = "login">
+  </form>
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
-	data() {
-		return {
-			userID: '',
-			password: '',
-			userJson: {}
-		}
-	},
-	methods: {
-		login() {
-			console.log(this.userID);
-			console.log(this.password);
-			axios.post('http://127.0.0.1:8000/login/', {
-				userID: this.userID,
-				password: this.password
-			}).then((res) => {
-				beautify = res.data.replaceAll('\'', '\"')
-				this.userJson = JSON.parse(beautify)
-				console.log(this.userJson);
-				if (this.userJson) {
-					sessionStorage.clear()
-					sessionStorage.setItem('userJson', JSON.stringify(this.userJson))
+  data() {
+    return {
+      userID: '',
+      password: '',
+      userJson: {}
+    }
+  },
+  methods: {
+    login() {
+      console.log(this.userID);
+      console.log(this.password);
+      axios.post('http://127.0.0.1:8000/login/', {
+        userID: this.userID,
+        password: this.password
+      }).then((res) => {
+        let beautify = res.data.replaceAll('\'', '\"')
+        this.userJson = JSON.parse(beautify)
+        console.log(this.userJson);
+        if (this.userJson) {
+          sessionStorage.clear()
+          sessionStorage.setItem('userJson', JSON.stringify(this.userJson))
 
-					window.location.href = 'http://127.0.0.1:5500/index.html'
-				}
-			})
-		}
-	}
+          window.location.href = 'http://127.0.0.1:5500/index.html'
+        }
+      })
+    }
+  }
 }
 </script>
 
