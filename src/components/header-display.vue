@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios'
+import store from '@/store'
 
 export default {
 	data() {
@@ -38,7 +39,8 @@ export default {
 	methods: {
 		get_recommend() {
 			console.log("get_recommend");
-			let before_date = new Date()
+			let before_date = new Date();
+
 			axios.get('http://127.0.0.1:8000/get_top_ratings/', {
 				params: {
 					uid: this.userJson.UserID
@@ -46,6 +48,7 @@ export default {
 			}).then((recommend_res) => {
 				let after_date = new Date()
 				console.log((after_date - before_date) / 1000);
+
 				let rec_list = [];
 				recommend_res.data.forEach(json_str => {
 					rec_list.push(JSON.parse(json_str))
@@ -54,15 +57,16 @@ export default {
 				this.rec_json = rec_list
 				sessionStorage.setItem("get_rec", JSON.stringify(this.rec_json))
 				console.log(this.rec_json);
-				
 			})
 
 		},
+		
 		recommend() {
 			console.log("recommend");
 			if (this.isLogin) {
 				// console.log(this.userJson);
-				this.$emit("rec_to_app", JSON.parse(sessionStorage.getItem("get_rec")))
+				// this.$emit("rec_to_app", JSON.parse(sessionStorage.getItem("get_rec")))
+				store.commit('setBookList' ,JSON.parse(sessionStorage.getItem("get_rec")));
 			} else {
 				alert("请先登录");
 			}

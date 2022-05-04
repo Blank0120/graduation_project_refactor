@@ -3,11 +3,19 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
   {
     path: '',
-    component: () => import('../views/default.vue')
+    component: () => import('../views/default-view.vue')
   },
   {
     path: '/login',
-    component: () => import('../views/login-display.vue')
+    component: () => import('../views/login-view.vue')
+  },
+  {
+    path: '/default',
+    component: () => import('../views/default-view.vue')
+  },
+  {
+    path: '/detail/:isbn',
+    component: () => import('../views/detail-view.vue')
   }
 ]
 

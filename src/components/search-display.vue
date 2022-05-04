@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios'
+import store from '@/store';
 
 export default {
 	data() {
@@ -32,7 +33,7 @@ export default {
 					search_list.push(element.fields)
 				});
 				console.log(search_list);
-				this.$emit("search_list",search_list)
+				store.commit('setBookList', search_list)
 			})
 		}
 	}

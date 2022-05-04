@@ -1,7 +1,7 @@
 <template>
-  <header-display @rec_to_app ="rec_to_books"></header-display>
-  <search-display @search_list ="showSearch"></search-display>
-  <books-display :rec ="rec_json" :search ="search_list"></books-display>
+  <header-display></header-display>
+  <search-display></search-display>
+  <books-display></books-display>
 </template>
 
 
