@@ -3,7 +3,8 @@
 		<ul>
 			<li><a href="#" @click.prevent = recommend>推荐阅读</a></li>
 			<li v-if = "this.isLogin"><p>你好	{{userJson.UserID}},  欢迎访问 !</p></li>
-			<li v-else><a href = '/html/login.html'>登录</a></li>
+			<!-- <li v-else><a href = '/login'>登录</a></li> -->
+			<li v-else><router-link to="/login">登录</router-link></li>
 		</ul>
 	</nav>
 </template>

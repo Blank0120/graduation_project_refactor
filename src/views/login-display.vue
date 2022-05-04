@@ -1,5 +1,6 @@
 <template>
-    `<form class="login-box">
+<div id = 'login'>
+  <form class="login-box">
     <h1>Login</h1>
     <div class="textbox">
       <i class="fa fa-user" aria-hidden="true"></i>
@@ -11,6 +12,7 @@
     </div>
     <input type="submit" class="btn" value="Sign in" @click.prevent = "login">
   </form>
+</div>
 </template>
 
 <script>
@@ -32,13 +34,12 @@ export default {
         userID: this.userID,
         password: this.password
       }).then((res) => {
-        let beautify = res.data.replaceAll('\'', '\"')
+        let beautify = res.data.replaceAll('\'', '"')
         this.userJson = JSON.parse(beautify)
         console.log(this.userJson);
         if (this.userJson) {
           sessionStorage.clear()
           sessionStorage.setItem('userJson', JSON.stringify(this.userJson))
-
           window.location.href = 'http://127.0.0.1:5500/index.html'
         }
       })
@@ -47,21 +48,15 @@ export default {
 }
 </script>
 
-
 <style scoped>
-html{
-  width: 100%;
-  height: 100%;
-}
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+#login{
+  position: relative;
+  height: 720px;
+    font-family: sans-serif;
   /* background: #9dbef1; */
   background: linear-gradient(to bottom, #9dbef1, #afeeee);
 }
+
 .login-box {
   width: 280px;
   position: absolute;

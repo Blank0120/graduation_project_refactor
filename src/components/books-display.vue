@@ -28,9 +28,9 @@ export default {
 			bookList: [{
 				"ISBN": "0000913154",
 				"BookTitle": "The Way Things Work: An Illustrated Encyclopedia of Technology",
-				"BookAuthor": "C. van Amerongen (translator)",
+				"BookAuthor": "C. van tom(translator)",
 				"YearOfPublication": 1967,
-				"Publisher": "Simon &amp; Schuster",
+				"Publisher": "Simon &amp; cat",
 				"ImageURLS": "http://images.amazon.com/images/P/0000913154.01.THUMBZZZ.jpg",
 				"ImageURLM": "http://images.amazon.com/images/P/0000913154.01.MZZZZZZZ.jpg",
 				"ImageURLL": "http://images.amazon.com/images/P/0000913154.01.LZZZZZZZ.jpg"
@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #books {
   margin-top: 80px;
   background: linear-gradient(to right, #9dbef1, #afeeee);
