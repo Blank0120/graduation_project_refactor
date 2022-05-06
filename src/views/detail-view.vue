@@ -12,19 +12,21 @@
             <el-card class="box-card">
               <template #header>
                 <div class="card-header">
-                  <span>{{bookDetail}}</span>
+                  <span>{{bookDetail.BookTitle}}</span>
                   <router-link to="/default">返回</router-link>
                 </div>
               </template>
 
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-              <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+              <div class="text item">作者:  {{bookDetail.BookAuthor}}</div>
+              <div class="text item">出版商:  {{bookDetail.Publisher}}</div>
+              <div class="text item">出版日期:  {{bookDetail.YearOfPublication}}</div>
+              <div class="text item">当前评分:  {{bookDetail.rate}}</div>
 
+              <div class="demo-rate-block">
+                  <span class="demonstration">评分：</span>
+                  <el-rate v-model="rateValue" />
+              </div>
+              
             </el-card>
           </el-main>
       </el-container>
@@ -34,7 +36,6 @@
         </div>
       </el-footer>
     </el-container>
-
 </template>
 
 <script>
@@ -58,26 +59,32 @@ export default {
   data(){
     return {
       bookDetail:{},
-      currentDate:ref(new Date())
+      currentDate:ref(new Date()),
+      rateValue:0
     }
   }
 }
 </script>
 
-<style scoped>
-.el-container {
-  background: linear-gradient(to right, #9dbef1, #afeeee);
-  margin: 15px;
+<style>
+html,body{
   padding: 0px;
-  display: flex;
-  align-items: center;
+  margin: 0px;
+  border: 0px;
+  height: 100%;
 }
 
-h1 {
-  text-decoration: underline;
-  text-align: center;
-  margin: 35px 0 5px
+#app{
+  height: 100%;
 }
+
+.el-container {
+  background: linear-gradient(to right, #9dbef1, #afeeee);
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 
 .cardsSet {
   display: flex;

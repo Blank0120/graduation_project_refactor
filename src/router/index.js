@@ -16,7 +16,16 @@ const routes = [
   {
     path: '/detail/:isbn',
     component: () => import('../views/detail-view.vue')
-  }
+  },
+  {
+    path: '/register',
+    component: () => import('../views/register-view.vue')
+  },
+  {
+    path: '/userInfo',
+    component: () => import('../views/userInfo-view.vue')
+  },
+
 ]
 
 const router = createRouter({

@@ -1,10 +1,13 @@
 <template>
 	<nav>
 		<ul>
+			<li><a href="#" @click.prevent = get_ratings>热门书籍</a></li>
 			<li><a href="#" @click.prevent = recommend>推荐阅读</a></li>
+			<li><router-link to="/register">注册</router-link></li>
 			<li v-if = "this.isLogin"><p>你好	{{userJson.UserID}},  欢迎访问 !</p></li>
 			<!-- <li v-else><a href = '/login'>登录</a></li> -->
 			<li v-else><router-link to="/login">登录</router-link></li>
+			<li><router-link :to="isLogin?'/userInfo':''">个人信息</router-link></li>
 		</ul>
 	</nav>
 </template>
@@ -70,6 +73,20 @@ export default {
 			} else {
 				alert("请先登录");
 			}
+		},
+		get_ratings(){
+			console.log("get_ratings");
+			axios.get('http://127.0.0.1:8000/get_ratings/')
+			.then((rating) => {
+				// console.log(JSON.parse(rating.data));
+				let temp = JSON.parse(rating.data);
+				let jsonArr = [];
+				temp.forEach((t)=>{
+					jsonArr.push(t.fields);
+				});
+				console.log(jsonArr);
+				store.commit('setBookList', jsonArr)
+			})
 		}
 	}
 }

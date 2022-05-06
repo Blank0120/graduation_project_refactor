@@ -1,10 +1,12 @@
 <template>
 		<div class="wrap">
 			<div class="search">
-				<input type="text" class="searchTerm" placeholder="What are you looking for?" v-model = "keyword">
-				<button type="submit" class="searchButton" @click.prevent = "search">
-					<i class="fa fa-search"></i>
-				</button>
+				<input type="text" class="searchTerm" placeholder="What are you looking for?" v-model = "keyword" required>
+
+				<el-button type="success" @click.prevent = "search">
+					<search style="width: 1em; height: 1em;" />
+				</el-button>
+
 			</div>
 		</div>
 </template>
@@ -41,6 +43,10 @@ export default {
 </script>
 
 <style scoped>
+.el-button--success{
+	margin-left: 20px;
+}
+
 .search {
   width: 30%;
   position: relative;
@@ -64,17 +70,7 @@ export default {
   color: #030303;
 }
 
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00b4cc;
-  background: #00b4cc;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
+
 
 /* Resize the wrap to see the search bar change!
 .wrap{
