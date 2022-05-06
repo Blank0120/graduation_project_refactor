@@ -25,7 +25,7 @@ export default {
 
 		axios.get('http://127.0.0.1:8000/books/')
 			.then((res) => {
-				// console.log(res.data[0])
+				console.log(res.data)
 				// this.bookList = res.data
 				store.commit('setBookList', res.data);
 			})

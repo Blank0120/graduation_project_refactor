@@ -1,13 +1,16 @@
 <template>
 	<nav>
 		<ul>
+			<li><a href="#" @click.prevent = get_books>首页</a></li>
 			<li><a href="#" @click.prevent = get_ratings>热门书籍</a></li>
-			<li><a href="#" @click.prevent = recommend>推荐阅读</a></li>
 			<li><router-link to="/register">注册</router-link></li>
+			<li><a href="#" @click.prevent='favour'>收藏夹</a></li>|
 			<li v-if = "this.isLogin"><p>你好	{{userJson.UserID}},  欢迎访问 !</p></li>
 			<!-- <li v-else><a href = '/login'>登录</a></li> -->
 			<li v-else><router-link to="/login">登录</router-link></li>
 			<li><router-link :to="isLogin?'/userInfo':''">个人信息</router-link></li>
+			<li><a href="#" @click.prevent = recommend>推荐阅读</a></li>
+
 		</ul>
 	</nav>
 </template>
@@ -40,6 +43,18 @@ export default {
 	},
 
 	methods: {
+		get_books(){
+			axios.get('http://127.0.0.1:8000/books/')
+				.then((res) => {
+					// console.log(res.data[0])
+					// this.bookList = res.data
+					store.commit('setBookList', res.data);
+				})
+		},
+		favour(){
+			console.log("favour");
+			store.commit("setBookList",store.state.favours);
+		},
 		get_recommend() {
 			console.log("get_recommend");
 			let before_date = new Date();

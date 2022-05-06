@@ -26,7 +26,9 @@
                   <span class="demonstration">评分：</span>
                   <el-rate v-model="rateValue" />
               </div>
-              
+
+              收藏： <el-switch v-model="fav" />
+
             </el-card>
           </el-main>
       </el-container>
@@ -41,6 +43,7 @@
 <script>
 import axios from 'axios'
 import { ref } from 'vue'
+import store from '@/store';
 
 export default {
   created(){
@@ -60,7 +63,19 @@ export default {
     return {
       bookDetail:{},
       currentDate:ref(new Date()),
-      rateValue:0
+      rateValue:0,
+      fav:false
+    }
+  },
+  watch:{
+    fav(newVal){
+      console.log(newVal);
+      if(newVal){
+        this.bookDetail['ISBN'] = this.$route.params.isbn
+        store.commit('set_favours',{"flag":newVal,"book":this.bookDetail})
+      }else{
+        store.commit('set_favours',{"flag":newVal});
+      }
     }
   }
 }
