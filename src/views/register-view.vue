@@ -23,13 +23,15 @@
        <input type="text" placeholder="Address">
     </div>
 
-    <input type="submit" class="btn" value="Register" @click.prevent = "register">
+
+    <el-button :plain="true" @click="register" class="btn">Register</el-button>
   </form>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 export default {
   data() {
@@ -40,11 +42,15 @@ export default {
     }
   },
   methods: {
-    register() {
-    //   this.$
-		this.$router.push("/default")
-    }
+   register(){
+      ElMessage({
+        message: '注册成功',
+        type: 'success',
+      });
+		  this.$router.push("/default")
+    } 
   }
+  
 }
 </script>
 

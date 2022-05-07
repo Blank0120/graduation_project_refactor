@@ -17,6 +17,7 @@
 
 <script>
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 export default {
   data() {
@@ -40,7 +41,12 @@ export default {
         if (this.userJson) {
           sessionStorage.clear()
           sessionStorage.setItem('userJson', JSON.stringify(this.userJson))
-          window.location.href = 'http://localhost:8080/#/default'
+          this.$router.push('/default');
+          // window.location.href = 'http://localhost:8080/#/default'
+          ElMessage({
+            message: '登录成功',
+            type: 'success',
+          })
         }
       })
     }

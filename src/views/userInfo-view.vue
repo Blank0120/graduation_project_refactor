@@ -3,7 +3,7 @@
 	<div class="container">
 		<div id="logo">
 			<!-- <h1>SAVE</h1> -->
-			<router-link to="/default" tag="h1" class="logo">Save</router-link>
+			<router-link to="/default" tag="h1" class="logo" @click="change">Save</router-link>
 			<div class="CTA">
 				<h1>FOREVER</h1>
 			</div>
@@ -24,11 +24,11 @@
 			<h2>用户ID</h2>
 			<p>{{userJson.UserID}}</p>
 			<h2>密码 </h2>
-			<p><input :placeholder="userJson.password"/><button class="btn">修改</button> </p>
+			<p><input :placeholder="userJson.password" ref="password"/><button class="btn">修改</button> </p>
 			<h2>地区 </h2>
-			<p><input :placeholder="userJson.Location"/><button class="btn">修改</button></p>
+			<p><input :placeholder="userJson.Location" ref="add"/><button class="btn">修改</button></p>
 			<h2>年龄 </h2>
-			<p><input :placeholder="userJson.Age"/><button class="btn">修改</button></p>
+			<p><input :placeholder="userJson.Age" ref="age"/><button class="btn">修改</button></p>
 			</div>
 						
 		</div>
@@ -43,12 +43,31 @@
 </template>
 
 <script>
+import { ElMessage } from 'element-plus'
+
 export default {
 	computed:{
 		userJson(){
 			return JSON.parse(sessionStorage.getItem("userJson"));
-		}
-	}
+		},
+	},
+
+  methods:{
+    change(){
+      console.log("change");
+      let c={};
+      c.UserID = this.userJson.UserID;
+      c.password = this.$refs.password.value;
+      c.Location = this.$refs.add.value;
+      c.Age = this.$refs.age.value;
+      console.log(c);
+      sessionStorage.setItem("userJson",JSON.stringify(c));
+      ElMessage({
+        message: '保存成功',
+        type: 'success',
+      })
+    }
+  }
 }
 </script>
 
