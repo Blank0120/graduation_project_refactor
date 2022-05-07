@@ -3,7 +3,7 @@
 		<ul>
 			<li v-for="(book,index) in $store.state.bookList" :key='index'>
 				<div id = "image_placeholder">
-					<img :src = 'book.ImageURLS' alt="this is a picture"/> 
+					<img :src = 'book.ImageURLS' alt="network is down" /> 
 				</div>
 				<div class="img_right">
 					<!-- <a :isbn='book.ISBN' @click.prevent="showDetail($event)" href="#">{{book.BookTitle}}</a> -->

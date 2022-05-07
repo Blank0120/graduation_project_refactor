@@ -8,11 +8,11 @@
     </div>
     <div class="textbox">
        <i class="fa fa-lock" aria-hidden="true"></i>
-       <input type="password" placeholder="Password" v-model = "password" required="required">
+       <input type="password" placeholder="Password"  required="required">
     </div>
     <div class="textbox">
        <i class="fa fa-lock" aria-hidden="true"></i>
-       <input type="password" placeholder="Confirm Password" v-model = "password" required="required">
+       <input type="password" placeholder="Confirm Password" required="required">
     </div>
     <div class="textbox">
        <i class="fa fa-lock" aria-hidden="true"></i>
