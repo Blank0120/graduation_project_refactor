@@ -1,4 +1,4 @@
-# recommendSystem
+# recommend-system-front
 
 ## Project setup
 ```
