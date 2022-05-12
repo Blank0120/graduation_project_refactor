@@ -1,4 +1,4 @@
-# gradution_project_refactor
+# recommendSystem
 
 ## Project setup
 ```
