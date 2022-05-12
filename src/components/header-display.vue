@@ -1,8 +1,8 @@
 <template>
 	<nav>
 		<ul>
-			<li><a href="#" @click.prevent = get_books>首页</a></li>
-			<li><a href="#" @click.prevent = get_ratings>热门书籍</a></li>
+			<li><a href="#" @click.prevent =get_books>首页</a></li>
+			<li><a href="#" @click.prevent =get_ratings>热门书籍</a></li>
 			<li><a href="#" @click.prevent='favour'>收藏夹</a></li>|
 			<li><router-link to="/register">注册</router-link></li>
 			<li v-if = "this.isLogin"><p>你好	{{userJson.UserID}},  欢迎访问 !</p></li>
